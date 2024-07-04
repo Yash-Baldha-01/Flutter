@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+
+class NameScreen extends StatefulWidget {
+  @override
+  _NameScreenState createState() => _NameScreenState();
+}
+
+class _NameScreenState extends State<NameScreen> {
+  final TextEditingController _nameController = TextEditingController();
+  String _displayName = '';
+
+  void _displayInputName() {
+    setState(() {
+        _displayName = _nameController.text;
+    });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _nameController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Name from textfield'),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextField(
+                controller: _nameController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter your name',
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: _displayInputName,
+                child: Text(
+                  'Display Name',
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                _displayName,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

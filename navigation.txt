@@ -1,0 +1,47 @@
+//////home page
+
+Scaffold(
+      appBar: AppBar(
+        title: Text("SplashScreen"),
+        backgroundColor: Colors.grey,
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text("HELLO TO THE SPLASH SCREEN PAGE."),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const splashScrn()),
+                );
+              },
+              child: Text(
+                "CLICK ME!",
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
+
+
+
+////Second page
+
+
+Scaffold(
+      appBar: AppBar(
+        title: Text("Second Page"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Hello welcome..."),
+          ],
+        ),
+      ),
+    );
